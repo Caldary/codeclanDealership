@@ -1,6 +1,7 @@
 package humans;
 import org.junit.Before;
 import org.junit.Test;
+import vehicles.CarType;
 import vehicles.FordMustang;
 
 import static org.junit.Assert.assertEquals;
@@ -14,8 +15,8 @@ public class CustomerTest {
     public void setUp() throws Exception {
         customer1 = new Customer("Mark", 25, 1000);
         customer2 = new Customer("Paulo", 32, 40000);
-        mustang1 = new FordMustang("Ford", "red", 25);
-        mustang2 = new FordMustang("FordX", "yellow", 2500);
+        mustang1 = new FordMustang("Ford", "red", 25, CarType.PETROL);
+        mustang2 = new FordMustang("FordX", "yellow", 2500, CarType.DIESEL);
     }
 
     @Test

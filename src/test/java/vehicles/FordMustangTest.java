@@ -11,8 +11,8 @@ public class FordMustangTest {
 
     @Before
     public void before(){
-        mustang1 = new FordMustang("Ford", "red", 25);
-        mustang2 = new FordMustang("FordX", "yellow", 2500);
+        mustang1 = new FordMustang("Ford", "red", 25,  CarType.PETROL);
+        mustang2 = new FordMustang("FordX", "yellow", 2500, CarType.DILITHIUM);
     }
 
     @Test
@@ -31,6 +31,11 @@ public class FordMustangTest {
     public void setPrice(){
         mustang1.setPrice(5);
         assertEquals(5, mustang1.getPrice());
+    }
+
+    @Test
+    public void getCarType(){
+        assertEquals("Dilithium", mustang2.getCarType().getNameType());
     }
 
 }
