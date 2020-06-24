@@ -26,8 +26,12 @@ public class Dealer extends Human implements IVehicleCollection {
     public void buyVehicle(Vehicle vehicle, Customer customer) {
         if (vehicle.getPrice() < getMoney()) {
             addVehicle(vehicle);
-            this.money -= vehicle.getPrice();
             customer.getVehicleList().remove(vehicle);
+            if (vehicle.isDamaged()) {
+                this.money -= vehicle.getPrice() / 2;
+            }
+            else { this.money -= vehicle.getPrice();
+            }
         }
     }
 }

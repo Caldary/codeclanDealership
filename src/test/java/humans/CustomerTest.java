@@ -71,9 +71,18 @@ public class CustomerTest {
         dealer1.addVehicle(mustang1);
         dealer1.addVehicle(mustang2);
         dealer1.addVehicle(mustang3);
+        mustang1.setDamaged(false);
         customer1.buyVehicle(mustang1, dealer1);
         assertEquals(1, customer1.getVehicleList().size());
         assertEquals(975, customer1.getMoney());
         assertEquals(2, dealer1.getVehicleList().size());
+    }
+
+    @Test
+    public void canBuyVehicle__damaged(){
+        dealer1.addVehicle(mustang1);
+        mustang1.setDamaged(true);
+        customer1.buyVehicle(mustang1, dealer1);
+        assertEquals(988, customer1.getMoney());
     }
 }
