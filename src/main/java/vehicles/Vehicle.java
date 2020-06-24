@@ -6,7 +6,7 @@ public abstract class Vehicle {
     private int price;
     private boolean damaged = false;
 
-    public Vehicle(String make, String color, int price, boolean damaged) {
+    public Vehicle(String make, String color, int price) {
         this.make = make;
         this.color = color;
         this.price = price;
