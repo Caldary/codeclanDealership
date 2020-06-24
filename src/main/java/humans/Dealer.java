@@ -1,6 +1,7 @@
 package humans;
 
 import behaviors.IVehicleCollection;
+import vehicles.FordMustang;
 import vehicles.Vehicle;
 
 import java.util.ArrayList;
@@ -22,4 +23,10 @@ public class Dealer extends Human implements IVehicleCollection {
         vehicleList.add(vehicle);
     }
 
+    public void buyVehicle(Vehicle vehicle, Customer customer) {
+        if (vehicle.getPrice() < getMoney()) {
+            addVehicle(vehicle);
+            this.money -= vehicle.getPrice();
+        }
+    }
 }

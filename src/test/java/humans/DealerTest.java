@@ -13,6 +13,8 @@ public class DealerTest {
     Dealer dealer2;
     FordMustang mustang1;
     FordMustang mustang2;
+    Customer customer1;
+    Customer customer2;
 
     @Before
     public void setUp() throws Exception {
@@ -20,6 +22,8 @@ public class DealerTest {
         dealer2 = new Dealer("Eugene", 21, 40000);
         mustang1 = new FordMustang("Ford", "red", 25, CarType.PETROL);
         mustang2 = new FordMustang("FordX", "yellow", 2500, CarType.DIESEL);
+        customer1 = new Customer("Mark", 25, 1000);
+        customer2 = new Customer("Paulo", 32, 40000);
     }
 
     @Test
@@ -60,5 +64,12 @@ public class DealerTest {
         dealer1.addVehicle(mustang1);
         dealer1.addVehicle(mustang2);
         assertEquals(2, dealer1.getVehicleList().size());
+    }
+
+    @Test
+    public void canBuyVehicle(){
+        dealer1.buyVehicle(mustang1, customer1);
+        assertEquals(1, dealer1.getVehicleList().size());
+        assertEquals(975, dealer1.getMoney());
     }
 }
