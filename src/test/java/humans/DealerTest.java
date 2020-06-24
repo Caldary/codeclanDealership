@@ -87,4 +87,11 @@ public class DealerTest {
         assertEquals(988, customer1.getMoney());
     }
 
+    @Test
+    public void canRepairVehicle(){
+        mustang1.setDamaged(true);
+        dealer1.repairVehicle(mustang1);
+        assertEquals(994, dealer1.getMoney());
     }
+
+}

@@ -34,4 +34,9 @@ public class Dealer extends Human implements IVehicleCollection {
             }
         }
     }
+
+    public void repairVehicle(Vehicle vehicle) {
+        vehicle.setDamaged(false);
+        this.money -= vehicle.getPrice() / 4;
+    }
 }
