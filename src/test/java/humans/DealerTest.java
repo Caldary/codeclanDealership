@@ -2,17 +2,24 @@ package humans;
 
 import org.junit.Before;
 import org.junit.Test;
+import vehicles.CarType;
+import vehicles.FordMustang;
+import vehicles.Vehicle;
 
 import static org.junit.Assert.assertEquals;
 
 public class DealerTest {
     Dealer dealer1;
     Dealer dealer2;
+    FordMustang mustang1;
+    FordMustang mustang2;
 
     @Before
     public void setUp() throws Exception {
         dealer1 = new Dealer("Colin", 34, 1000);
         dealer2 = new Dealer("Eugene", 21, 40000);
+        mustang1 = new FordMustang("Ford", "red", 25, CarType.PETROL);
+        mustang2 = new FordMustang("FordX", "yellow", 2500, CarType.DIESEL);
     }
 
     @Test
@@ -46,5 +53,12 @@ public class DealerTest {
     public void canSetMoney(){
         dealer1.setMoney(0);
         assertEquals(0, dealer1.getMoney());
+    }
+
+    @Test
+    public void canGetVehicleList(){
+        dealer1.addVehicle(mustang1);
+        dealer1.addVehicle(mustang2);
+        assertEquals(2, dealer1.getVehicleList().size());
     }
 }
