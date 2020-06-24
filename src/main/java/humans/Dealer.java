@@ -27,6 +27,7 @@ public class Dealer extends Human implements IVehicleCollection {
         if (vehicle.getPrice() < getMoney()) {
             addVehicle(vehicle);
             this.money -= vehicle.getPrice();
+            customer.getVehicleList().remove(vehicle);
         }
     }
 }

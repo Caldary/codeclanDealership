@@ -13,6 +13,7 @@ public class DealerTest {
     Dealer dealer2;
     FordMustang mustang1;
     FordMustang mustang2;
+    FordMustang mustang3;
     Customer customer1;
     Customer customer2;
 
@@ -22,6 +23,7 @@ public class DealerTest {
         dealer2 = new Dealer("Eugene", 21, 40000);
         mustang1 = new FordMustang("Ford", "red", 25, CarType.PETROL);
         mustang2 = new FordMustang("FordX", "yellow", 2500, CarType.DIESEL);
+        mustang3 = new FordMustang("THEBESTMAKE", "pink", 1000000, CarType.DILITHIUM);
         customer1 = new Customer("Mark", 25, 1000);
         customer2 = new Customer("Paulo", 32, 40000);
     }
@@ -68,8 +70,13 @@ public class DealerTest {
 
     @Test
     public void canBuyVehicle(){
+        customer1.addVehicle(mustang1);
+        customer1.addVehicle(mustang2);
+        customer1.addVehicle(mustang3);
         dealer1.buyVehicle(mustang1, customer1);
         assertEquals(1, dealer1.getVehicleList().size());
         assertEquals(975, dealer1.getMoney());
+        assertEquals(2, customer1.getVehicleList().size());
     }
-}
+
+    }

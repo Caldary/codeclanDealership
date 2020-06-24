@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
     FordMustang mustang1;
     FordMustang mustang2;
+    FordMustang mustang3;
     Customer customer1;
     Customer customer2;
     Dealer dealer1;
@@ -20,6 +21,7 @@ public class CustomerTest {
         customer2 = new Customer("Paulo", 32, 40000);
         mustang1 = new FordMustang("Ford", "red", 25, CarType.PETROL);
         mustang2 = new FordMustang("FordX", "yellow", 2500, CarType.DIESEL);
+        mustang3 = new FordMustang("THEBESTMAKE", "pink", 1000000, CarType.DILITHIUM);
         dealer1 = new Dealer("Colin", 34, 1000);
         dealer2 = new Dealer("Eugene", 21, 40000);
     }
@@ -66,8 +68,12 @@ public class CustomerTest {
 
     @Test
     public void canBuyVehicle(){
+        dealer1.addVehicle(mustang1);
+        dealer1.addVehicle(mustang2);
+        dealer1.addVehicle(mustang3);
         customer1.buyVehicle(mustang1, dealer1);
         assertEquals(1, customer1.getVehicleList().size());
         assertEquals(975, customer1.getMoney());
+        assertEquals(2, dealer1.getVehicleList().size());
     }
 }
