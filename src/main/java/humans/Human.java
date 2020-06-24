@@ -3,7 +3,7 @@ package humans;
 public abstract class Human {
     private String name;
     private int age;
-    private int money;
+    protected int money;
 
     public Human(String name, int age, int money) {
         this.name = name;
